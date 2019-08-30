@@ -10,11 +10,12 @@ This project is a python application that manages login and signup credentials o
 
 ## Installation / Setup instruction
 
-### The application requires the following installations to operate 
+#### The application requires the following installations to operate 
 * python3.6
 * pyperclip
 * pip
 
+#### Cloning
 
 * Open Terminal {Ctrl+Alt+T}
 
