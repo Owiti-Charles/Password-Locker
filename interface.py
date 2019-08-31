@@ -28,11 +28,31 @@ def display_user():
     """
     return User.display_user()
 def login_user(username,password):
+    """
+    function that checks whether a user exist and then login the user in.
+    """
   
-  #function that checks whether a user exist and then login the user in.
-  
-  check_user = Credentials.verify_user(username,password)
-  return check_user
+    check_user = Credentials.verify_user(username,password)
+    return check_user
+
+def create_new_credential(account,userName,password):
+    """
+    Function that creates new credentials for a given user account
+    """
+    new_credential = Credentials(account,userName,password)
+    return new_credential
+def save_credentials(lock):
+    """
+    Function to save Credentials
+    """
+    lock.save_account()
+ 
+def generate_Password():
+    '''
+    generates a random password for the user.
+    '''
+    auto_password=Credentials.generatePassword()
+    return auto_password
 
 
 def passlocker():
@@ -60,8 +80,33 @@ def passlocker():
             print("what would you like to do?")
             print('\n')
     while True:
-        print("Use these short codes : cc - Create a new credential, dc - Display Credential(s), fc - Find a credential,ex - Exit the application, gp- Generate A randomn password, del- Delete credential,cp-Copy Password")
-        short_code = input().lower()
+        print("Use these short codes:\n CC - Create a new credential , DC - Display Credentials,\n FC - Find a credential,\n EX - Exit the application,\n GP - Generate A randomn password,\n D - Delete credential")
+        short_code = input().lower().strip()
+        if short_code == 'cc':
+            print("Create New Credential")
+            print("."*20)
+            print("Account name ....")
+            account = input().capitalize()
+            print("Your Account username")
+            user_Name = input()
+            while True:
+                print(" TP - To type your own pasword:\n GP - To generate random Password")
+                password_Choice = input("Enter").lower().strip()
+                if password_Choice == 'tp':
+                    password = input("Enter Password")
+                    break
+                elif password_Choice == 'gp':
+                    password = generate_Password()
+                    break
+                elif password_Choice != 'tp' or 'gp':
+                    print("Invalid password please try again")
+                    break
+                else:
+                    print("Invalid password please try again")
+            save_credentials(create_new_credential(account,user_Name,password))
+            print('\n')
+            print(f"New Credential : {account} UserName: {user_Name} Password:{password} created")
+            print('\n')
     else:
         print("Please enter a valid input to continue")
 
