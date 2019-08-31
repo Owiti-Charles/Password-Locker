@@ -41,7 +41,7 @@ class Credentials():
                     a_user == user.username
         return a_user
 
-    def __init__(self, userName, password,account):
+    def __init__(self,account,userName, password):
         """
         method that defines user credentials to be stored
         """
