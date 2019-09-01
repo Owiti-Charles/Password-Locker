@@ -42,6 +42,9 @@ The user would like to.... :
 
         $ chmod +x interface.py
         $ ./interface.py
+* To run test for the application
+        $ python3 passlock_test.py
+
 ## Behaviour Driven Development
 | Behaviour | Input | Output |
 | :---------------- | :---------------: | ------------------: |
@@ -57,8 +60,6 @@ The user would like to.... :
 ## Technologies Used
 
 * python3.6
-
- 
 
 ## Known Bugs
 * There are no known bugs currently but pull requests are allowed incase you spot a bug
